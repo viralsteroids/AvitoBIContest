@@ -5,10 +5,12 @@
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/items.html
 
+from scrapy.loader.processors import Join, MapCompose, TakeFirst
+
 from scrapy.item import Item, Field
 
 class CoinsItem(Item):
-    title = Field()
-    description = Field()
+    title = Field(output_processor=TakeFirst())
+    description = Field(output_processor=Join())
     date = Field()
-    url = Field()
+    url = Field(output_processor=TakeFirst())

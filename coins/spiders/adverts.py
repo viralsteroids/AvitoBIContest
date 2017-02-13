@@ -32,7 +32,7 @@ class AdvertsSpider(CrawlSpider):
         il = ItemLoader(item=CoinsItem(), response=response)
 
         il.add_xpath('title', '//span[contains(@class, \'title-info-title-text\')]/text()')
-        il.add_xpath('description', '//div[contains(@class, \'item-description-text\')]/*')
+        il.add_xpath('description', '//div[contains(@class, \'item-description-text\')]/*/text()')
         il.add_value('url', response.url)
 
         return il.load_item()
