@@ -123,3 +123,10 @@ class FindDate(object):
             item['date'] = None
 
         return item
+
+
+class CleanTitleAndDescription(object):
+    def process_item(self, item, spider):
+        item['title'] = None
+        item['description'] = None
+        return item
